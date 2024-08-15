@@ -1,6 +1,6 @@
 ## honey-addons (*miód*)
 
-A bunch of addons for message library, which focuses on simplicity and flexibility.
+A bunch of addons for <a href="https://github.com/rchomczyk-playground/honey">honey</a> message library, which focuses on simplicity and flexibility.
 
 ### Get started
 
@@ -13,6 +13,13 @@ maven("https://repo.shiza.dev/releases")
 ##### Add dependency
 
 ##### honey-iridium
+
 ```kotlin
 implementation("dev.shiza:honey-addons-iridium:1.0.0-SNAPSHOT")
+```
+
+##### honey-opel
+
+```kotlin
+implementation("dev.shiza:honey-addons-opel:1.0.0-SNAPSHOT")
 ```
