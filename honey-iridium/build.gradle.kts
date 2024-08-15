@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    api(libs.honey)
+    compileOnly(libs.honey)
     api(libs.iridium)
 }
 
