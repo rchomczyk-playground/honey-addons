@@ -1,7 +1,13 @@
 [versions]
 honey = "1.0.0-SNAPSHOT"
+apache-commons-lang3 = "3.16.0"
+allegro-opel = "1.1.14"
 iridium = "1.1.0"
+parboiled = "1.4.1"
 
 [libraries]
 honey = { module = "dev.shiza:honey", version.ref = "honey" }
+opel = { module = "pl.allegro.tech:opel", version.ref = "allegro-opel" }
+lang = { module = "org.apache.commons:commons-lang3", version.ref = "apache-commons-lang3" }
 iridium = { module = "com.iridium:IridiumColorAPI", version.ref = "iridium" }
+parboiled = { module = "org.parboiled:parboiled-java", version.ref = "parboiled" }
