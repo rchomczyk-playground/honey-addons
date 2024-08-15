@@ -1,0 +1,7 @@
+[versions]
+honey = "1.0.0-SNAPSHOT"
+iridium = "1.1.0"
+
+[libraries]
+honey = { module = "dev.shiza:honey", version.ref = "honey" }
+iridium = { module = "com.iridium:IridiumColorAPI", version.ref = "iridium" }
