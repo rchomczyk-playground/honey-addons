@@ -23,7 +23,7 @@ class IridiumMessageCompiler implements MessageCompiler<String> {
       final String sanitizedValue = stripColorFormatting(evaluatedValue);
       processedContent =
           processedContent.replace(getResolvableTag(placeholder.key()), sanitizedValue);
-      processedContent = process(processedContent.replace(placeholder.key(), sanitizedValue));
+      processedContent = process(processedContent);
     }
     return processedContent;
   }
