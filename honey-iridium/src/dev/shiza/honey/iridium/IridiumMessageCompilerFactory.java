@@ -1,7 +1,6 @@
 package dev.shiza.honey.iridium;
 
-import static java.util.function.Function.identity;
-
+import com.iridium.colors.IridiumColors;
 import dev.shiza.honey.message.MessageCompiler;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.IridiumComponentSerializer;
@@ -14,7 +13,7 @@ public final class IridiumMessageCompilerFactory {
   private IridiumMessageCompilerFactory() {}
 
   public static MessageCompiler<String> create() {
-    return new IridiumMessageCompiler<>(identity());
+    return new IridiumMessageCompiler<>(IridiumColors::process);
   }
 
   public static MessageCompiler<Component> createAdventure() {

@@ -1,6 +1,5 @@
 package dev.shiza.honey.iridium;
 
-import static com.iridium.colors.IridiumColors.process;
 import static com.iridium.colors.IridiumColors.stripColorFormatting;
 
 import dev.shiza.honey.message.MessageCompiler;
@@ -26,7 +25,6 @@ class IridiumMessageCompiler<T> implements MessageCompiler<T> {
       final String sanitizedValue = stripColorFormatting(evaluatedValue);
       processedContent =
           processedContent.replace(getResolvableTag(placeholder.key()), sanitizedValue);
-      processedContent = process(processedContent);
     }
     return transformation.apply(processedContent);
   }
