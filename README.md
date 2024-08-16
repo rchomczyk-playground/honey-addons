@@ -15,11 +15,11 @@ maven("https://repo.shiza.dev/releases")
 ##### honey-iridium
 
 ```kotlin
-implementation("dev.shiza:honey-addons-iridium:1.0.1")
+implementation("dev.shiza:honey-addons-iridium:1.0.2")
 ```
 
 ##### honey-opel
 
 ```kotlin
-implementation("dev.shiza:honey-addons-opel:1.0.1")
+implementation("dev.shiza:honey-addons-opel:1.0.2")
 ```
