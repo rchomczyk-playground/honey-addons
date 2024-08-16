@@ -5,8 +5,9 @@ plugins {
 }
 
 dependencies {
+    api(libs.bundles.iridium)
     compileOnly(libs.honey)
-    api(libs.iridium)
+    compileOnly(libs.bundles.adventure)
 }
 
 honeyPublish {

@@ -1,22 +1,25 @@
 package dev.shiza.honey.iridium;
 
-import static com.iridium.iridiumcolorapi.IridiumColorAPI.process;
-import static com.iridium.iridiumcolorapi.IridiumColorAPI.stripColorFormatting;
+import static com.iridium.colors.IridiumColors.process;
+import static com.iridium.colors.IridiumColors.stripColorFormatting;
 
 import dev.shiza.honey.message.MessageCompiler;
 import dev.shiza.honey.placeholder.sanitizer.SanitizedPlaceholder;
 import java.util.List;
+import java.util.function.Function;
 
-class IridiumMessageCompiler implements MessageCompiler<String> {
+class IridiumMessageCompiler<T> implements MessageCompiler<T> {
 
   private static final char TAG_RESOLVER_INIT = '<';
   private static final char TAG_RESOLVER_STOP = '>';
+  private final Function<String, T> transformation;
 
-  IridiumMessageCompiler() {}
+  IridiumMessageCompiler(final Function<String, T> transformation) {
+    this.transformation = transformation;
+  }
 
   @Override
-  public String compile(
-      final String sanitizedContent, final List<SanitizedPlaceholder> placeholders) {
+  public T compile(final String sanitizedContent, final List<SanitizedPlaceholder> placeholders) {
     String processedContent = sanitizedContent;
     for (final SanitizedPlaceholder placeholder : placeholders) {
       final String evaluatedValue = placeholder.evaluatedValue().toString();
@@ -25,7 +28,7 @@ class IridiumMessageCompiler implements MessageCompiler<String> {
           processedContent.replace(getResolvableTag(placeholder.key()), sanitizedValue);
       processedContent = process(processedContent);
     }
-    return processedContent;
+    return transformation.apply(processedContent);
   }
 
   private String getResolvableTag(final String key) {
