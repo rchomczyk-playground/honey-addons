@@ -1,9 +1,9 @@
 package dev.shiza.honey.iridium;
 
 import com.iridium.colors.IridiumColors;
+import com.iridium.colors.kyori.IridiumComponentSerializer;
 import dev.shiza.honey.message.MessageCompiler;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.serializer.legacy.IridiumComponentSerializer;
 
 public final class IridiumMessageCompilerFactory {
 
