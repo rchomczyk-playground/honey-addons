@@ -4,7 +4,7 @@ import dev.shiza.honey.placeholder.evaluator.EvaluatedPlaceholder;
 import dev.shiza.honey.placeholder.evaluator.PlaceholderContext;
 import dev.shiza.honey.placeholder.evaluator.PlaceholderEvaluator;
 import dev.shiza.honey.placeholder.resolver.Placeholder;
-import java.util.concurrent.CompletableFuture;
+import dev.shiza.honey.placeholder.visitor.PlaceholderVisitor;
 import pl.allegro.tech.opel.EvalContext;
 import pl.allegro.tech.opel.EvalContextBuilder;
 import pl.allegro.tech.opel.OpelEngine;
@@ -18,14 +18,15 @@ class OpelPlaceholderEvaluator implements PlaceholderEvaluator {
   }
 
   @Override
-  public CompletableFuture<EvaluatedPlaceholder> evaluate(
-      final PlaceholderContext context, final Placeholder placeholder) {
-    return opelEngine
-        .eval(placeholder.expression(), getAsEvalContext(context))
-        .thenApply(evaluatedValue -> new EvaluatedPlaceholder(placeholder, evaluatedValue));
+  public EvaluatedPlaceholder evaluate(
+      final PlaceholderContext context,
+      final PlaceholderVisitor<?> visitor,
+      final Placeholder placeholder) {
+    return new EvaluatedPlaceholder(
+        placeholder, opelEngine.eval(placeholder.expression(), getAsEvalContext(context)));
   }
 
   private EvalContext getAsEvalContext(final PlaceholderContext context) {
-    return EvalContextBuilder.create().withValues(context.getValues()).build();
+    return EvalContextBuilder.create().withValues(context.getPromisedValues()).build();
   }
 }
