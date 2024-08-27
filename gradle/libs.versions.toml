@@ -1,5 +1,5 @@
 [versions]
-honey = "1.0.3"
+honey = "1.0.4"
 apache-commons-lang3 = "3.16.0"
 allegro-opel = "1.1.14"
 iridium = "2.1.0"
