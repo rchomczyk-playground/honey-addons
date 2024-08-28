@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/honey-iridium" />
             <option value="$PROJECT_DIR$/honey-opel" />
+            <option value="$PROJECT_DIR$/honey-templates" />
           </set>
         </option>
       </GradleProjectSettings>

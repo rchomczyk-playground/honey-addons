@@ -6,6 +6,7 @@ import dev.shiza.honey.placeholder.evaluator.PlaceholderContext;
 import dev.shiza.honey.placeholder.evaluator.PlaceholderEvaluator;
 import dev.shiza.honey.placeholder.resolver.PlaceholderResolver;
 import dev.shiza.honey.placeholder.sanitizer.PlaceholderSanitizer;
+import dev.shiza.honey.processor.ProcessorRegistry;
 import dev.shiza.honey.reflection.ReflectivePlaceholderEvaluatorFactory;
 
 public interface IridiumHoney extends Honey<String> {
@@ -14,26 +15,29 @@ public interface IridiumHoney extends Honey<String> {
     return createReflective(PlaceholderContext.create());
   }
 
-  static IridiumHoney createReflective(final PlaceholderContext globalContext) {
+  static IridiumHoney createReflective(final PlaceholderContext placeholderContext) {
     return create(
         IridiumMessageCompilerFactory.create(),
-        globalContext,
+        placeholderContext,
         PlaceholderResolver.create(),
         PlaceholderSanitizer.create(),
-        ReflectivePlaceholderEvaluatorFactory.create());
+        ReflectivePlaceholderEvaluatorFactory.create(),
+        ProcessorRegistry.create());
   }
 
   private static IridiumHoney create(
       final MessageCompiler<String> messageCompiler,
-      final PlaceholderContext globalContext,
+      final PlaceholderContext placeholderContext,
       final PlaceholderResolver placeholderResolver,
       final PlaceholderSanitizer placeholderSanitizer,
-      final PlaceholderEvaluator placeholderEvaluator) {
+      final PlaceholderEvaluator placeholderEvaluator,
+      final ProcessorRegistry processorRegistry) {
     return new IridiumHoneyImpl(
         messageCompiler,
-        globalContext,
+        placeholderContext,
         placeholderResolver,
         placeholderSanitizer,
-        placeholderEvaluator);
+        placeholderEvaluator,
+        processorRegistry);
   }
 }

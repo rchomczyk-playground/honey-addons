@@ -6,16 +6,24 @@ import dev.shiza.honey.placeholder.evaluator.PlaceholderContext;
 import dev.shiza.honey.placeholder.evaluator.PlaceholderEvaluator;
 import dev.shiza.honey.placeholder.resolver.PlaceholderResolver;
 import dev.shiza.honey.placeholder.sanitizer.PlaceholderSanitizer;
+import dev.shiza.honey.processor.ProcessorRegistry;
 import net.kyori.adventure.text.Component;
 
 class AdventureIridiumHoneyImpl extends HoneyImpl<Component> implements AdventureIridiumHoney {
 
   AdventureIridiumHoneyImpl(
       final MessageCompiler<Component> messageCompiler,
-      final PlaceholderContext globalContext,
+      final PlaceholderContext placeholderContext,
       final PlaceholderResolver placeholderResolver,
       final PlaceholderSanitizer placeholderSanitizer,
-      final PlaceholderEvaluator placeholderEvaluator) {
-    super(messageCompiler, globalContext, placeholderResolver, placeholderSanitizer, placeholderEvaluator);
+      final PlaceholderEvaluator placeholderEvaluator,
+      final ProcessorRegistry processorRegistry) {
+    super(
+        messageCompiler,
+        placeholderContext,
+        placeholderResolver,
+        placeholderSanitizer,
+        placeholderEvaluator,
+        processorRegistry);
   }
 }

@@ -5,12 +5,11 @@ plugins {
 }
 
 dependencies {
-    api(libs.lang)
-    api(libs.opel)
-    api(libs.parboiled)
+    api(libs.expressible)
     compileOnly(libs.honey)
+    compileOnly(libs.bundles.adventure)
 }
 
 honeyPublish {
-    artifactId = "honey-addons-opel"
+    artifactId = "honey-addons-templates"
 }

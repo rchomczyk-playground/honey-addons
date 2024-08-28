@@ -6,20 +6,23 @@ import dev.shiza.honey.placeholder.evaluator.PlaceholderContext;
 import dev.shiza.honey.placeholder.evaluator.PlaceholderEvaluator;
 import dev.shiza.honey.placeholder.resolver.PlaceholderResolver;
 import dev.shiza.honey.placeholder.sanitizer.PlaceholderSanitizer;
+import dev.shiza.honey.processor.ProcessorRegistry;
 
 class IridiumHoneyImpl extends HoneyImpl<String> implements IridiumHoney {
 
   IridiumHoneyImpl(
       final MessageCompiler<String> messageCompiler,
-      final PlaceholderContext globalContext,
+      final PlaceholderContext placeholderContext,
       final PlaceholderResolver placeholderResolver,
       final PlaceholderSanitizer placeholderSanitizer,
-      final PlaceholderEvaluator placeholderEvaluator) {
+      final PlaceholderEvaluator placeholderEvaluator,
+      final ProcessorRegistry processorRegistry) {
     super(
         messageCompiler,
-        globalContext,
+        placeholderContext,
         placeholderResolver,
         placeholderSanitizer,
-        placeholderEvaluator);
+        placeholderEvaluator,
+        processorRegistry);
   }
 }
