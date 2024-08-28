@@ -46,7 +46,7 @@ public final class TemplateProcessor implements Processor {
       final String strippedContent = content.replace(templateTag, template.initial());
       final String prefix = strippedContent.substring(0, template.initial().length() + 1);
       final String suffix =
-          strippedContent.substring(template.initial().length() + 1, strippedContent.length() - 1);
+          strippedContent.substring(template.initial().length() + 1);
       return new TemplateByStrippedContent(template, prefix + template.content() + suffix);
     }
 
