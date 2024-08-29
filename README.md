@@ -12,14 +12,6 @@ maven("https://repo.shiza.dev/releases")
 
 ##### Add dependency
 
-##### honey-iridium
-
 ```kotlin
-implementation("dev.shiza:honey-addons-iridium:1.0.5")
-```
-
-##### honey-opel
-
-```kotlin
-implementation("dev.shiza:honey-addons-opel:1.0.5")
+implementation("dev.shiza:<addon>:1.0.8")
 ```
