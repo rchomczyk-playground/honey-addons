@@ -5,9 +5,12 @@ import java.util.Map;
 
 class InmemoryMessageSource implements MessageSource {
 
+  private final Locale fallbackLocale;
   private final Map<Locale, Map<String, String>> messages;
 
-  InmemoryMessageSource(final Map<Locale, Map<String, String>> messages) {
+  InmemoryMessageSource(
+      final Locale fallbackLocale, final Map<Locale, Map<String, String>> messages) {
+    this.fallbackLocale = fallbackLocale;
     this.messages = messages;
   }
 
@@ -18,9 +21,12 @@ class InmemoryMessageSource implements MessageSource {
 
   @Override
   public String getMessage(final Locale locale, final String key) {
-    final Map<String, String> localizedMessages = messages.get(locale);
+    Map<String, String> localizedMessages = messages.get(locale);
     if (localizedMessages == null) {
-      throw new MessageResolvingException(locale);
+      if (fallbackLocale == null) {
+        throw new MessageResolvingException(locale);
+      }
+      localizedMessages = messages.get(fallbackLocale);
     }
 
     final String localizedMessage = localizedMessages.get(key);

@@ -6,8 +6,13 @@ import java.util.Map;
 
 public interface MessageSource {
 
+  static MessageSource create(
+      final Locale fallbackLocale, final Map<Locale, Map<String, String>> messages) {
+    return new InmemoryMessageSource(fallbackLocale, messages);
+  }
+
   static MessageSource create(final Map<Locale, Map<String, String>> messages) {
-    return new InmemoryMessageSource(messages);
+    return create(null, messages);
   }
 
   static MessageSource create() {
