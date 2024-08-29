@@ -21,6 +21,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/honey-i18n" />
             <option value="$PROJECT_DIR$/honey-iridium" />
             <option value="$PROJECT_DIR$/honey-opel" />
             <option value="$PROJECT_DIR$/honey-templates" />

@@ -1,11 +1,12 @@
 [versions]
-honey = "1.0.6"
+honey = "1.0.7"
 apache-commons-lang3 = "3.16.0"
 allegro-opel = "1.1.14"
 iridium = "2.1.0"
 parboiled = "1.4.1"
 adventure = "4.17.0"
 expressible = "1.3.5"
+annotations = "24.1.0"
 
 [libraries]
 honey = { module = "dev.shiza:honey", version.ref = "honey" }
@@ -17,6 +18,7 @@ parboiled = { module = "org.parboiled:parboiled-java", version.ref = "parboiled"
 adventure-api = { module = "net.kyori:adventure-api", version.ref = "adventure" }
 adventure-minimessage = { module = "net.kyori:adventure-text-minimessage", version.ref = "adventure" }
 expressible = { module = "org.panda-lang:expressible", version.ref = "expressible" }
+annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
 
 [bundles]
 iridium = ["iridium-colors", "iridium-colors-adventure"]
