@@ -6,7 +6,7 @@ iridium = "2.1.0"
 parboiled = "1.4.1"
 adventure = "4.17.0"
 expressible = "1.3.6"
-annotations = "26.0.0"
+annotations = "26.0.1"
 
 [libraries]
 honey = { module = "dev.shiza:honey", version.ref = "honey" }
